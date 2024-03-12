@@ -46,7 +46,6 @@
     - name: install mysql client
       ansible.builtin.dnf:
         name: mysql
-        state: installed
 
     - name: load schema
       ansible.builtin.shell: mysql -h mysql.sriharsha.shop -uroot -pSriharsha@1 < /app/schema/backend.sql
@@ -54,6 +53,6 @@
     - name: enabling and restarting backend service
       ansible.builtin.systemd:
         name: backend
-        enabled: yes
         state: restarted
+        enabled: yes
         daemon-reload: yes
