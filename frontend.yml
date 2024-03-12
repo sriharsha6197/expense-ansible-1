@@ -31,5 +31,4 @@
     - name: restarting and enabling nginx
       ansible.builtin.dnf:
         name: nginx
-        state: present
         enabled: yes
