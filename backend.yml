@@ -40,6 +40,8 @@
 
     - name: download dependencies
       ansible.builtin.shell: npm install
+      args:
+        chdir: /app
 
     - name: install mysql client
       ansible.builtin.dnf:
