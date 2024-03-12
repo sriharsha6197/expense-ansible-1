@@ -19,7 +19,7 @@
 
     - name: create app directory for nginx
       ansible.builtin.file:
-        path: /etc/usr/share/nginx
+        path: /usr/share/nginx/html
         state: directory
 
     - name: download and extract frontend code
