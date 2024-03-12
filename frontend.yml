@@ -1,0 +1,29 @@
+- name : Frontend setup
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install nginx
+      ansible.builtin.dnf:
+        name: nginx
+        state: Installed
+
+    - name: copying expense app conf into nginx file
+      ansible.builtin.copy:
+        src: expense.conf
+        dest: /etc/nginx/default.d/expense.conf
+      
+    - name: removing nginx directory
+      ansible.builtin.file:
+        state: absent
+        path: /usr/share/nginx/html
+
+    - name: create app directory for nginx
+      ansible.builtin.file:
+        path: /etc/usr/share/nginx
+        state: directory
+
+    - name: restarting and enabling nginx
+      ansible.builtin.dnf:
+        name: nginx
+        state: restarted
+        enabled: yes
