@@ -5,7 +5,7 @@
     - name: Install nginx
       ansible.builtin.dnf:
         name: nginx
-        state: Installed
+        state: installed
 
     - name: copying expense app conf into nginx file
       ansible.builtin.copy:
