@@ -29,6 +29,7 @@
         remote_src: yes
 
     - name: restarting and enabling nginx
-      ansible.builtin.dnf:
+      ansible.builtin.systemd:
         name: nginx
+        state: restarted
         enabled: yes
