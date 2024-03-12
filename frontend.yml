@@ -25,9 +25,9 @@
     - name: download and extract frontend code
       ansible.builtin.unarchive:
         src: https://expense-artifacts.s3.amazonaws.com/frontend.zip 
-        dest: /tmp/frontend.zip
+        dest: /usr/share/nginx/html
         remote_src: yes
-        
+
     - name: restarting and enabling nginx
       ansible.builtin.dnf:
         name: nginx
